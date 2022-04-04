@@ -20,10 +20,12 @@ export const httpService = {
 };
 async function ajax(endpoint, method = 'GET', data = null) {
   try {
+    console.log('sdfsdfsdfsdfsdfsdf');
+    console.log(`${BASE_URL}${endpoint}`);
     const res = await axios({
       url: `${BASE_URL}${endpoint}`,
       method,
-      // data,
+      data,
       params: method === 'GET' ? data : null,
     });
     return res.data;

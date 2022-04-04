@@ -1,56 +1,50 @@
-import { storageService } from './storageService';
+// import { storageService } from './storageService';
+import axios from 'axios';
 import { httpService } from './httpService';
-import { makeId } from './utilService';
-import diamondData from '../assets/data/diamondData.json';
+// import { makeId } from './utilService';
+// import diamondData from '../assets/data/diamondData.json';
 
 export const itemService = {
     query,
     save,
+    filter,
     remove,
     getById,
     getEmptyItem,
 };
 
-const STORAGE_KEY = 'items';
+const httpUrl = 'https://localhost:5001/';
 
-const gDefaultItems = diamondData;
+// const gDefaultItems = diamondData;
 
+// var gItems = _loadItems();
 
-var gItems = _loadItems();
+function query() {
+    return axios.get(httpUrl + 'items').then((items) => items.data);
+    // return httpService.get(`items`);
 
-function query(filterBy) {
-    // return httpService.get(`items`, filterBy);
-
-    let itemsToReturn = gItems;
-    if (filterBy) {
-        itemsToReturn = filter(itemsToReturn, filterBy);
-    }
-    return Promise.resolve([...itemsToReturn]);
+    // let itemsToReturn = gItems;
+    // if (filterBy) {
+    //     itemsToReturn = filter(itemsToReturn, filterBy);
+    // }
+    // return Promise.resolve([...itemsToReturn]);
 }
 
-function save(itemToSave) {
-    if (itemToSave._id) {
-        const idx = gItems.findIndex((item) => item._id === itemToSave._id);
-        gItems.splice(idx, 1, itemToSave);
-    } else {
-        itemToSave._id = makeId();
-        gItems.push(itemToSave);
-    }
-    storageService.store(STORAGE_KEY, gItems);
-    return Promise.resolve(itemToSave);
+function save(item) {
+    return item.id
+        ? axios.put(httpUrl + `items/${item.id}`, item).then((items) => items.data)
+        : axios.post(httpUrl + 'items', item).then((items) => items.data);
 }
 
-function remove(id) {
-    const idx = gItems.findIndex((item) => item._id === id);
-    gItems.splice(idx, 1);
-    if (!gItems.length) gItems = gDefaultItems.slice();
-    storageService.store(STORAGE_KEY, gItems);
-    return Promise.resolve();
+
+function remove(itemId) {
+    // return httpService.delete(`items/${itemId}`);
+    axios.delete(httpUrl + `items/${itemId}`).then((items) => items.data);
 }
 
-function getById(id) {
-    const item = gItems.find((item) => item._id === id);
-    return Promise.resolve({ ...item });
+async function getById(itemId) {
+    const item = await axios.get(`items/${itemId}`);
+    return item.data;
 }
 
 function filter(items, filterBy) {
@@ -65,14 +59,15 @@ function filter(items, filterBy) {
                     .includes(filterBy.search.toLocaleLowerCase()) ||
                 item.clarity
                     .toLocaleLowerCase()
-                    .includes(filterBy.search.toLocaleLowerCase()) 
+                    .includes(filterBy.search.toLocaleLowerCase())
             );
         } else return item;
     });
 }
+
 function getEmptyItem() {
-   
     return {
+        img: '',
         shape: '',
         size: 0,
         color: '',
@@ -82,9 +77,3 @@ function getEmptyItem() {
     };
 }
 
-function _loadItems() {
-    let items = storageService.load(STORAGE_KEY);
-    if (!items || !items.length) items = gDefaultItems;
-    storageService.store(STORAGE_KEY, items);
-    return items;
-}

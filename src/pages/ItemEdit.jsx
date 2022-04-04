@@ -29,7 +29,7 @@ export const ItemEdit = (props) => {
 
     return (
         <div>
-            <h1 className='text-center'>{item._id ? 'Edit ' : 'Add '}A Diamond</h1>
+            <h1 className='text-center'>{item.id ? 'Edit ' : 'Add '}A Diamond</h1>
             <form className="simple-form" onSubmit={onSaveItem}>
                 <label htmlFor="Shape">Shape</label>
                 <select

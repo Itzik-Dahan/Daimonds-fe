@@ -24,8 +24,11 @@ export function removeItem(itemId) {
 }
 
 export function setFilterBy(filterBy) {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+        const { items } = getState().itemModule;
+        const itemsFilter = itemService.filter(items, filterBy);
         dispatch({ type: 'SET_FILTER_BY', filterBy });
+        return itemsFilter;
     };
 }
 

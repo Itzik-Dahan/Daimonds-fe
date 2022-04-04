@@ -21,16 +21,15 @@ export function itemReducer(state = INITIAL_STATE, action) {
     case 'REMOVE_ITEM':
       return {
         ...state,
-        items: state.items.filter((item) => item._id !== action.itemId),
+        items: state.items.filter((item) => item.id !== action.itemId),
       };
 
     case 'UPDATE_ITEM':
       return {
         ...state,
-        items: state.items.map((item) => (item._id === action.item._id ? action.item : item)),
+        items: state.items.map((item) => (item.id === action.item.id ? action.item : item)),
       };
     case 'SET_FILTER_BY':
-      console.log(action.filterBy);
       return {
         ...state,
         filterBy: { ...action.filterBy },

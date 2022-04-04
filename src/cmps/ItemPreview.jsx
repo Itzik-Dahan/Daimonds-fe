@@ -31,10 +31,10 @@ export const ItemPreview = ({ item, onRemoveItem }) => {
                 </>
             </span>
             <div className="card-btns">
-                <Link className="simple-button" to={`/item/edit/${item._id}`}>Edit</Link>
+                <Link className="simple-button" to={`/item/edit/${item.id}`}>Edit</Link>
                 <a
                     className="simple-button"
-                    onClick={() => onRemoveItem(item._id)}
+                    onClick={() => onRemoveItem(item.id)}
                 >
                     Delete
                 </a>

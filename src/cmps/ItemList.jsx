@@ -10,7 +10,7 @@ export const ItemList = ({ items, onRemoveItem }) => {
                 {items.map((item) => (
                     <ItemPreview
                         item={item}
-                        key={item._id}
+                        key={item.id}
                         onRemoveItem={onRemoveItem}
                     ></ItemPreview>
                 ))}
@@ -20,7 +20,6 @@ export const ItemList = ({ items, onRemoveItem }) => {
                     <>
                         <div className="add-btn">
                             <span>Add Diamond </span> 
-                            {/* <span> + </span>  */}
                         </div>
                     </>
                 </Link>
