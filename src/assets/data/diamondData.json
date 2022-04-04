@@ -1,0 +1,60 @@
+[{
+    "img":"../img/round_D.jpg",
+    "shape": "Round",
+    "size": 1.02,
+    "color": "D",
+    "clarity": "IF",
+    "price":15000,
+    "listPrice":18000,
+    "_id": "D101"
+},
+{
+    "img":"../img/pear_E.jpg",
+    "shape": "Pear",
+    "size": 1.5,
+    "color": "E",
+    "clarity": "VVS1",
+    "price":20000,
+    "listPrice":21000,
+    "_id": "D102"
+},
+{
+    "img":"../img/emerald_G.jpg",
+    "shape": "Emerald",
+    "size": 0.95,
+    "color": "G",
+    "clarity": "VVS2",
+    "price":12000,
+    "listPrice":10000,
+    "_id": "D103"
+},
+{
+    "img":"../img/round_F.jpg",
+    "shape": "Round",
+    "size": 2.15,
+    "color": "F",
+    "clarity": "I2",
+    "price":50000,
+    "listPrice":55000,
+    "_id": "D104"
+},
+{
+    "img":"../img/emerald_d.jpg",
+    "shape": "Emerald",
+    "size": 0.5,
+    "color": "D",
+    "clarity": "IF",
+    "price":2000,
+    "listPrice":3000,
+    "_id": "D105"
+},
+{
+    "img":"../img/pear_G.jpg",
+    "shape": "Pear",
+    "size": 1.2,
+    "color": "G",
+    "clarity": "I1",
+    "price":15000,
+    "listPrice":12000,
+    "_id": "D106"
+} ]

@@ -1,0 +1,25 @@
+// SETUP
+@import './setup/typography';
+@import './setup/variables';
+@import './setup/mixins';
+@import './setup/functions';
+
+// BASICS
+@import './basics/helpers';
+@import './basics/base';
+@import './basics/layout';
+@import './basics/modals';
+@import './basics/animations';
+
+// PAGES
+@import './pages/app';
+
+// COMPONENTS
+@import './cmp/loading';
+@import './cmp/delete-modal';
+@import './cmp/app-header';
+@import './cmp/_item-preview';
+
+// .active {
+//   color: #9c27b0;
+// }
