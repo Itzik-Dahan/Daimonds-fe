@@ -1,6 +1,6 @@
 import Axios from 'axios';
 // import { router } from '@/router';
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '//localhost:3030/';
+const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '//localhost:5001/';
 var axios = Axios.create({
   withCredentials: true,
 });

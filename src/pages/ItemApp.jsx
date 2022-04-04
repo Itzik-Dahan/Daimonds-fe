@@ -19,7 +19,7 @@ export const ItemApp = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch('http://localhost:3030/items', {
+        fetch('https://localhost:5001/items', {
             crossDomain: true,
             headers: {
                 'Access-Control-Allow-Origin': '*',
