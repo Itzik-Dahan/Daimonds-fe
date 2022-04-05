@@ -20,7 +20,7 @@ export const ItemPreview = ({ item, onRemoveItem }) => {
                         <p>
                             <span>Clarity:</span> <span>{item.clarity}</span>{' '}
                         </p>
-                        <p className='price'>
+                        <p className='price price-top'>
                             <span>Price:</span> <span>{item.price}</span>{' '}
                         </p>
                         <p className='price'>

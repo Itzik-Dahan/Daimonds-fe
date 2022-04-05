@@ -48,8 +48,8 @@ export const ItemApp = () => {
 
     return (
         <div className="item-app main-layout ">
-            <ItemFilter onChangeFilter={onChangeFilter}></ItemFilter>
             <Statistics items={items}></Statistics>
+            <ItemFilter onChangeFilter={onChangeFilter}></ItemFilter>
             {/* <Link to="/item/edit">Add Diamond</Link> */}
             <ItemList items={itemsToShow} onRemoveItem={onRemoveItem}></ItemList>
             {remove && <DeleteModal onHandleDelete={onHandleDelete} />}

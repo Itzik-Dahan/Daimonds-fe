@@ -14,7 +14,7 @@ export const ItemFilter = ({ onChangeFilter }) => {
     <form>
       <section className='search'>
         <label htmlFor="search">Search </label>
-        <input onChange={handleChange} value={search} type="text" name="search" id="search" />
+        <input placeholder='Search By Shape' title='Search By Shape' onChange={handleChange} value={search} type="search" name="search" id="search" />
       </section>
     </form>
   );

@@ -1,20 +1,17 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-export const AppHeader = () => {
+export const AppHeader = ({ isScroll }) => {
     return (
-        <header className="header main-layout">
+        <header className={`header main-layout ${isScroll ? 'is-scroll' : ''}`}>
             <div className="app-header">
-                <Link className="simple-button" to="/">
+                {/* <Link className="simple-button" to="/">
                     Logo
-                </Link>
+                </Link> */}
                 <nav className="links">
                     <NavLink className="simple-button" exact to="/">
                         Home
                     </NavLink>
-                    {/* <NavLink className="simple-button" to="/item">
-                        item
-                    </NavLink> */}
                 </nav>
             </div>
         </header>
