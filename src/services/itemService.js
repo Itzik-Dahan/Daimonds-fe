@@ -1,8 +1,7 @@
-// import { storageService } from './storageService';
+
 import axios from 'axios';
 import { httpService } from './httpService';
-// import { makeId } from './utilService';
-// import diamondData from '../assets/data/diamondData.json';
+
 
 export const itemService = {
     query,
@@ -15,19 +14,8 @@ export const itemService = {
 
 const httpUrl = 'https://localhost:5001/';
 
-// const gDefaultItems = diamondData;
-
-// var gItems = _loadItems();
-
 function query() {
     return axios.get(httpUrl + 'items').then((items) => items.data);
-    // return httpService.get(`items`);
-
-    // let itemsToReturn = gItems;
-    // if (filterBy) {
-    //     itemsToReturn = filter(itemsToReturn, filterBy);
-    // }
-    // return Promise.resolve([...itemsToReturn]);
 }
 
 function save(item) {
@@ -38,7 +26,6 @@ function save(item) {
 
 
 function remove(itemId) {
-    // return httpService.delete(`items/${itemId}`);
     axios.delete(httpUrl + `items/${itemId}`).then((items) => items.data);
 }
 
@@ -67,7 +54,6 @@ function filter(items, filterBy) {
 
 function getEmptyItem() {
     return {
-        img: '',
         shape: '',
         size: 0,
         color: '',
