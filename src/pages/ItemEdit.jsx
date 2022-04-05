@@ -28,7 +28,7 @@ export const ItemEdit = (props) => {
     if (!item) return <div>{'Loading...'}</div>;
 
     return (
-        <div>
+        <div className='item-edit'>
             <h1 className='text-center'>{item.id ? 'Edit ' : 'Add '}A Diamond</h1>
             <form className="simple-form" onSubmit={onSaveItem}>
                 <label htmlFor="Shape">Shape</label>
