@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 export const ItemList = ({ items, onRemoveItem }) => {
     return (
         <div className='items-list'>
-            {/* אם יש בעיות בעיצוב, זה בגלל הקלאס קארד-גריד */}
             <ul className="card-grid clean-list">
                 {items.map((item) => (
                     <ItemPreview

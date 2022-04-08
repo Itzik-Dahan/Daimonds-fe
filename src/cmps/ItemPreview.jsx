@@ -6,7 +6,6 @@ export const ItemPreview = ({ item, onRemoveItem }) => {
         <article className="diamond-card">
             <span  className="info">
                 <>
-                    {/* <img className="diamond-img" src={item.img} alt="" /> */}
                     <div className='card-content'>
                         <p>
                             <span>Shape:</span> <span>{item.shape}</span>{' '}

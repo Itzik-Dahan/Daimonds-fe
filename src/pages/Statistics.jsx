@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-export const Statistics = () => {
-    const { items } = useSelector((state) => state.itemModule);
+export const Statistics = ({ items }) => {
     const [avgPrice, setAvgPrice] = useState(null);
     const [minPrice, setMinPrice] = useState(null);
 
@@ -25,7 +24,7 @@ export const Statistics = () => {
     };
 
     return (
-        <div className='statistics'>
+        <div className="statistics">
             <fieldset>
                 <legend>Average Price:</legend>
                 <span>{avgPrice}</span>

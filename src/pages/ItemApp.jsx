@@ -1,11 +1,9 @@
-import axios from 'axios';
+
 import React, { useCallback, useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { DeleteModal } from '../cmps/DeleteModel';
 import { ItemFilter } from '../cmps/ItemFilter';
 import { ItemList } from '../cmps/ItemList';
-import { itemService } from '../services/itemService';
 import {
     loadItems,
     removeItem,

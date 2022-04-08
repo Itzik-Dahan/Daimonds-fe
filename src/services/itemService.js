@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { httpService } from './httpService';
 
 export const itemService = {
     query,
@@ -12,33 +11,34 @@ export const itemService = {
 
 const httpUrl = 'https://localhost:5001/';
 
-function query() {
-    return axios.get(httpUrl + 'items').then((items) => items.data);
+async function query() {
+    const { data } = await axios.get(httpUrl + 'items');
+    return data;
 }
 
-function save(item) {
-    return item.id
-        ? axios
-              .put(httpUrl + `items/${item.id}`, item)
-              .then((items) => items.data)
-        : axios.post(httpUrl + 'items', item).then((items) => items.data);
+async function save(item) {
+    const { data } = await item.id
+        ? axios.put(httpUrl + `items/${item.id}`, item)
+        : axios.post(httpUrl + 'items', item);
+    return data;
 }
 
-function remove(itemId) {
-    axios.delete(httpUrl + `items/${itemId}`).then((items) => items.data);
+async function remove(itemId) {
+    const { data } = await axios.delete(httpUrl + `items/${itemId}`);
+    return data;
 }
 
 async function getById(itemId) {
-    const item = await axios.get(`items/${itemId}`);
-    return item.data;
+    const { data } = await axios.get(`items/${itemId}`);
+    return data;
 }
 
 function filter(items, filterBy) {
     return items.filter((item) => {
         if (filterBy) {
             return item.shape
-                .toLocaleLowerCase()
-                .includes(filterBy.search.toLocaleLowerCase());
+                .toLowerCase()
+                .includes(filterBy.search.toLowerCase());
         } else return item;
     });
 }

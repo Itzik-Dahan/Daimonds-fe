@@ -26,11 +26,7 @@ export const App = () => {
                     <Switch>
                         {/* לשים את הראוט הכי ספציפי הכי למעלה וככה להמשיך עד שהכי כללי נמצא הכי למטה */}
                         <Route component={ItemEdit} path="/item/edit/:id?" />
-                        <Route component={ItemDetails} path="/item/:id" />
                         <Route component={ItemApp} path="/" />
-                        {/* <Route exact path="/">
-                            <Redirect to="/item" />
-                        </Route> */}
                     </Switch>
                 </main>
             </div>
